@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        TODO-LIST_NUXT
+        TODO-LIST-NUXT
       </h1>
       <div class="links">
         <a
@@ -28,7 +28,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>
 
 <style>
@@ -47,16 +49,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
