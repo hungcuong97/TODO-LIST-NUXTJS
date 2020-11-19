@@ -74,23 +74,6 @@
 // import { formatDate } from '../../helper/formatDatePicker'
 import CreateEditTaskModal from '../../components/task/CreateEditTaskModal.vue'
 
-function formatDate (date) {
-  if (date) {
-    const data = new Date(date)
-    let day = '' + data.getDate()
-    let month = '' + (data.getMonth() + 1)
-    if (day.length < 2) {
-      day = '0' + day
-    }
-    if (month.length < 2) {
-      month = '0' + month
-    }
-    const year = data.getFullYear()
-    return [year, month, day].join('-')
-  }
-  return date
-}
-
 export default {
   name: 'Task',
   components: {
@@ -148,8 +131,8 @@ export default {
 
   methods: {
     handleAddTask (data) {
-      data.startDate = formatDate(data.startDate)
-      data.endDate = formatDate(data.endDate)
+      data.startDate = this.$dayjs(data.startDate).format('YYYY-MM-DD')
+      data.endDate = this.$dayjs(data.endDate).format('YYYY-MM-DD')
       this.tableData = [...this.tableData, data]
       this.addTask = {
         name: '',
@@ -160,19 +143,14 @@ export default {
     },
 
     handleEditTask (data) {
-      data.startDate = formatDate(data.startDate)
-      data.endDate = formatDate(data.endDate)
+      data.startDate = this.$dayjs(data.startDate).format('YYYY-MM-DD')
+      data.endDate = this.$dayjs(data.endDate).format('YYYY-MM-DD')
       this.tableData.splice(this.rowEdit, 1, data)
     },
 
     clickEdit (index, row) {
       this.rowEdit = index
-      this.editTask = {
-        name: row.name,
-        description: row.description,
-        startDate: row.startDate,
-        endDate: row.endDate
-      }
+      this.editTask = this._.clone(row)
     },
 
     clickDelete (index) {
