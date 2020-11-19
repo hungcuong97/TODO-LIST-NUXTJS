@@ -1,7 +1,7 @@
 <template>
-  <div id="home" class="container">
-    <h1 class="title">
-      Trang chủ
+  <div id="contact">
+    <h1>
+      Liên hệ
     </h1>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-#home > h1 {
+#contact > h1 {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 24px;

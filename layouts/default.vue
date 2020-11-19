@@ -1,8 +1,47 @@
 <template>
-  <div>
-    <Nuxt />
+  <div id="app">
+    <el-container>
+      <!-- Header  -->
+      <el-header>
+        <Header />
+      </el-header>
+
+      <el-container>
+        <!-- Side bar -->
+        <el-aside width="250px">
+          <side-bar />
+        </el-aside>
+
+        <el-container>
+          <!-- Content -->
+          <el-main>
+            <Nuxt />
+          </el-main>
+
+          <!-- Footer -->
+          <el-footer>
+            <Footer />
+          </el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
   </div>
 </template>
+
+<script>
+import Header from './Header.vue'
+import SideBar from './SideBar.vue'
+import Footer from './Footer.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    SideBar,
+    Footer
+  }
+}
+</script>
 
 <style>
 html {
@@ -40,23 +79,23 @@ html {
   padding: 10px 30px;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.el-header {
+  background-color: #3c8dbc;
+  color: #ffffff;
+  line-height: 60px;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.el-footer {
+  background: #fff;
+  padding: 15px;
+  color: #444;
+  line-height: 40px;
+  text-align: center;
+  border-top: 1px solid #d2d6de;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.el-main {
+  background-color: #ecf0f5;
+  padding: 10px !important;
 }
 </style>
