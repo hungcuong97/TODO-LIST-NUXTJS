@@ -60,7 +60,7 @@
             id="delete"
             size="mini"
             type="danger"
-            @click="clickDelete(scope.$index)"
+            @click="clickDelete(scope.$index, scope.row)"
           >
             Delete
           </el-button>
@@ -153,8 +153,12 @@ export default {
       this.editTask = this._.clone(row)
     },
 
-    clickDelete (index) {
-      this.tableData.splice(index, 1)
+    clickDelete (index, row) {
+      this.$confirm(`Bạn muốn xóa ${row.name} ?`)
+        .then(() => {
+          this.tableData.splice(index, 1)
+        })
+        .catch(() => {})
     }
   }
 }

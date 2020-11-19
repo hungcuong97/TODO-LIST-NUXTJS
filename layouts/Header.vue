@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    TODO - LIST
+    TODO - LIST - NUXTJS
   </div>
 </template>
 
